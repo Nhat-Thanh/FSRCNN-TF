@@ -28,8 +28,10 @@ python train.py  --steps=200000             \
 
 **NOTE**: if you want to re-train a new model, you should delete all files in sub-directories in **checkpoint** directory. Your checkpoint will be saved when above command finishs and can be used for the next times, so you can train a model on Google Colab without taking care of GPU time limit.
 
-I trained 3 models on Google Colab in 200000 steps and you can get them here:
+I trained 3 models on Google Colab in 200000 steps:
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1LHX2GjlmprwFm6zyQ6vIgO2CwV00mC_L?usp=sharing)
+
+You can get the models here:
 - [FSRCNN-x2.h5](checkpoint/x2/FSRCNN-x2.h5)
 - [FSRCNN-x3.h5](checkpoint/x3/FSRCNN-x3.h5)
 - [FSRCNN-x4.h5](checkpoint/x4/FSRCNN-x4.h5)
