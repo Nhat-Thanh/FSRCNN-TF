@@ -1,10 +1,12 @@
+import os
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = '3'
+
 from tensorflow.keras.losses import MeanSquaredError 
 from tensorflow.keras.optimizers import Adam
 from utils.dataset import dataset
 from utils.common import PSNR
 from model import FSRCNN
 import argparse
-import os
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--steps",            type=int,   default=100000,            help='-')
@@ -44,10 +46,6 @@ valid_set = dataset(dataset_dir, "validation")
 valid_set.generate(lr_crop_size, hr_crop_size)
 valid_set.load_data()
 
-test_set = dataset(dataset_dir, "test")
-test_set.generate(lr_crop_size, hr_crop_size)
-test_set.load_data()
-
 
 # -----------------------------------------------------------
 #  Train
@@ -65,11 +63,3 @@ srcnn.train(train_set, valid_set,
             save_best_only=save_best_only, 
             save_every=save_every)
 
-
-# -----------------------------------------------------------
-#  Test
-# -----------------------------------------------------------
-# todo: use the best checkpoint to evaluate the test set
-srcnn.load_weights(model_path)
-loss, metric = srcnn.evaluate(test_set)
-print(f"loss: {loss} - psnr: {metric}")
