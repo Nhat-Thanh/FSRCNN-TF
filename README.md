@@ -28,8 +28,8 @@ python train.py  --steps=200000             \
                  --save-log=0               \
                  --ckpt-dir="checkpoint/x2" 
 ```
-- **--save-best-only**: if it is **0**, model weights will be saved every **save-every** steps.
-- **--save-log**: if it's equal to **1**, **train loss, train metrics, validation losses, validation metrics** will be saved every save-every steps.
+- **--save-best-only**: if it's equal to **0**, model weights will be saved every **save-every** steps.
+- **--save-log**: if it's equal to **1**, **train loss, train metrics, validation losses, validation metrics** will be saved every **save-every** steps.
 
 
 **NOTE**: if you want to re-train a new model, you should delete all files in sub-directories in **checkpoint** directory. Your checkpoint will be saved when above command finishs and can be used for the next times, so you can train a model on Google Colab without taking care of GPU time limit.
