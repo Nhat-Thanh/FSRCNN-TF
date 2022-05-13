@@ -31,7 +31,7 @@ save_best_only = (FLAG.save_best_only == 1)
 
 scale = FLAG.scale
 if scale not in [2, 3, 4]:
-    ValueError("scale must be 2, 3 or 4")
+    raise ValueError("scale must be 2, 3 or 4")
 
 ckpt_dir = FLAG.ckpt_dir
 if (ckpt_dir == "") or (ckpt_dir == "default"):

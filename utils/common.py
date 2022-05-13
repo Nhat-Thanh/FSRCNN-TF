@@ -77,7 +77,7 @@ def resize_bicubic(src, h, w):
 # source: https://gist.github.com/blzq/c87d42f45a8c5a53f5b393e27b1f5319
 def gaussian_blur(src, kernel_size=3, sigma=0.5):
     if len(src.shape) == 4 and src.shape[0] > 1:
-        ValueError("src should be a single image, not a batch")
+        raise ValueError("src should be a single image, not a batch")
 
     def gaussian_kernel(channels, ksize, sigma):
         ax = tf.range(-ksize // 2 + 1.0, ksize // 2 + 1.0)
@@ -142,7 +142,7 @@ def random_transform(src):
 
 def shuffle(X, Y):
     if X.shape[0] != Y.shape[0]:
-        ValueError("X and Y must have the same number of elements")
+        raise ValueError("X and Y must have the same number of elements")
     indices = np.arange(0, X.shape[0])
     np.random.shuffle(indices)
     X = tf.gather(X, indices)

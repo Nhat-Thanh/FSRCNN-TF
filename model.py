@@ -13,7 +13,7 @@ class FSRCNN:
     def __init__(self, scale): 
 
         if scale not in [2, 3, 4]:
-            ValueError("scale must be 2, 3, or 4")
+            raise ValueError("scale must be 2, 3, or 4")
 
         self.model = nn.FSRCNN(scale)
         self.optimizer = None
@@ -63,7 +63,7 @@ class FSRCNN:
               save_best_only=False, save_log=False, log_dir=None):
 
         if (save_log) and (log_dir is None):
-            ValueError("log_dir must be specified if save_log is True")
+            raise ValueError("log_dir must be specified if save_log is True")
         os.makedirs(log_dir, exist_ok=True)
         dict_logger = {"loss":       logger(path=os.path.join(log_dir, "losses.npy"),      values=[]),
                        "metric":     logger(path=os.path.join(log_dir, "metrics.npy"),     values=[]),

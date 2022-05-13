@@ -20,7 +20,7 @@ image_path = FLAGS.image_path
 
 scale = FLAGS.scale
 if scale not in [2, 3, 4]:
-    ValueError("scale must be 2, 3, or 4")
+    raise ValueError("scale must be 2, 3, or 4")
 
 ckpt_path = FLAGS.ckpt_path
 if (ckpt_path == "") or (ckpt_path == "default"):
