@@ -19,7 +19,7 @@ def rgb2ycbcr(src):
     R = rgb[:,:,0]
     G = rgb[:,:,1]
     B = rgb[:,:,2]
-    
+
     ycbcr = np.zeros(shape=rgb.shape)
     # *Intel IPP
     # ycbcr[:,:,0] = 0.257 * R + 0.504 * G + 0.098 * B + 16
@@ -29,7 +29,7 @@ def rgb2ycbcr(src):
     ycbcr[:,:,0] =  0.299 * R + 0.587 * G + 0.114 * B
     ycbcr[:,:,1] =  -0.16874 * R - 0.33126 * G + 0.5 * B + 128
     ycbcr[:,:,2] =  0.5 * R - 0.41869 * G - 0.08131 * B + 128
-    
+
     # @Y in range [16, 235]
     ycbcr[:,:,0] = np.clip(ycbcr[:,:,0], 16, 235)
     # @Cb, Cr in range [16, 240]
@@ -94,7 +94,7 @@ def gaussian_blur(src, kernel_size=3, sigma=0.5):
     blur_image = tf.nn.depthwise_conv2d(image, kernel, [1, 1, 1, 1], padding='SAME')[0]
     blur_image = tf.cast(blur_image, tf.uint8)
     return blur_image
-    
+
 def upscale(src, scale):
     h = int(src.shape[0] * scale)
     w = int(src.shape[1] * scale)
