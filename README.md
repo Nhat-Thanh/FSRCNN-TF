@@ -53,8 +53,8 @@ python test.py --scale=2 --ckpt-path="default"
 ## Demo 
 After Training, you can test models with this command, the result is the **sr.png**.
 ```
-python demo.py --image-path="dataset/test2.png"          \
-               --ckpt-path="default"  \
+python demo.py --image-path="dataset/test2.png" \
+               --ckpt-path="default"            \
                --scale=2
 ```
 
